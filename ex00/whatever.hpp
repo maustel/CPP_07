@@ -13,6 +13,8 @@
 #ifndef __WHATEVER_HPP__
 # define __WHATEVER_HPP__
 
+#include <iostream>
+
 /*
 A template is a blueprint that lets you write code once and use it with different data types
 
@@ -40,7 +42,8 @@ T min(T a, T b)
 {
 	if(a < b)
 		return (a);
-	return (b);
+	else
+		return (b);
 }
 
 template <typename T>
@@ -48,7 +51,8 @@ T max(T a, T b)
 {
 	if(a > b)
 		return (a);
-	return (b);
+	else
+		return (b);
 }
 
 #endif
