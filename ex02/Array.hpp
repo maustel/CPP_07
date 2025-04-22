@@ -13,7 +13,7 @@
 #ifndef __ARRAY_HPP__
 # define __ARRAY_HPP__
 
-#pragma once
+// #pragma once
 
 # include <iostream>
 

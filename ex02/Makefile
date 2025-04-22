@@ -15,7 +15,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++17
 
-SRC = main.cpp Array.tpp
+SRC = main.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

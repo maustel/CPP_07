@@ -33,8 +33,8 @@ Array<T>::Array(const Array& other): _element(nullptr), _size(other._size)
 {
 	if (other._element)
 	{
-		this->_element = new T[other.size];
-		for (int i = 0; i < other.size; i++)
+		this->_element = new T[other._size];
+		for (size_t i = 0; i < other._size; i++)
 		this->_element[i] = other._element[i];
 	}
 }
@@ -52,13 +52,14 @@ Array<T>& Array<T>::operator=(const Array& other)
 		this->_size = other._size;
 		if (other._element)
 		{
-			tmp_element = new T[other.size];
-			for (int i = 0; i < other.size; i++)
+			tmp_element = new T[other._size];
+			for (size_t i = 0; i < other._size; i++)
 			tmp_element[i] = other._element[i];
 		}
 		delete[] this->_element;
 		this->_element = tmp_element;
 	}
+	return (*this);
 }
 
 //-------------------- [Subscript operator overload] -------------------
@@ -90,7 +91,7 @@ template<class T> unsigned int Array<T>::size() const
 template<class T> std::ostream &operator<<(std::ostream &os, const Array<T> &arr)
 {
 	os << "Array size: " << arr.size() << "\ncontent:" << std::endl;
-	for (int i = 0; i < arr.size(); i++)
+	for (size_t i = 0; i < arr.size(); i++)
 		os << "Index " << i << ": " << arr[i] << std::endl;
 	return (os);
 }
