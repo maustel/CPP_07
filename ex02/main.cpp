@@ -41,13 +41,14 @@ int main()
 		str_array[0] = "hummingbird";
 		str_array[1] = "woodpecker";
 		str_array[4] = "robin";
-		std::cout << YEL << "After setting values:\n" << RESET << str_array;
 
 		Array<std::string> str_new(str_array);
-		std::cout << YEL << "Copy contructor test:\n" << RESET << str_new;
-
 		Array<std::string> empty;
 		empty = str_new;
+
+		str_array[2] = "newnewnewnew";
+		std::cout << YEL << "After setting all values:\n" << RESET << str_array;
+		std::cout << YEL << "Copy contructor test:\n" << RESET << str_new;
 		std::cout << YEL << "Assignment operator test:\n" << RESET << empty;
 
 		std::cout << RED << "Should fail:" << RESET << std::endl;
