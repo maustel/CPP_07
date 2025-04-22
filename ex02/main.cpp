@@ -19,10 +19,10 @@ int main()
 
 	try
 	{
-		Array<int> int_array(2);
-		int_array[0] = 42;
-		int_array[1] = 12;
-		std::cout << int_array << std::endl;
+		Array<int> int_array;
+		// int_array[0] = 42;
+		// int_array[1] = 12;
+		// std::cout << int_array << std::endl;
 	}
 	catch(const std::exception& e)
 	{

@@ -13,6 +13,8 @@
 #ifndef __ARRAY_HPP__
 # define __ARRAY_HPP__
 
+#pragma once
+
 # include <iostream>
 
 template <typename T>
@@ -39,6 +41,6 @@ class Array
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const Array<T>& arr);
 
-// #include "Array.tpp"
+#include "Array.tpp"
 
 #endif
