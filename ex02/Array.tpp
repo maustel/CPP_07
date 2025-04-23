@@ -24,8 +24,12 @@ Array<T>::~Array()
 	delete[] this->_element;
 }
 
+/*
+_element(new T[n]()) -> creates an array of n elements.
+() initializes each element to 0
+*/
 template <typename T>
-Array<T>::Array(unsigned int n): _element(new T[n]), _size(n)
+Array<T>::Array(unsigned int n): _element(new T[n]()), _size(n)
 {}
 
 template <typename T>
@@ -35,7 +39,7 @@ Array<T>::Array(const Array& other): _element(nullptr), _size(other._size)
 	{
 		this->_element = new T[other._size];
 		for (size_t i = 0; i < other._size; i++)
-		this->_element[i] = other._element[i];
+			this->_element[i] = other._element[i];
 	}
 }
 
@@ -48,13 +52,13 @@ Array<T>& Array<T>::operator=(const Array& other)
 {
 	if (this != &other)
 	{
-		T* tmp_element = nullptr;
 		this->_size = other._size;
+		T* tmp_element = nullptr;
 		if (other._element)
 		{
 			tmp_element = new T[other._size];
 			for (size_t i = 0; i < other._size; i++)
-			tmp_element[i] = other._element[i];
+				tmp_element[i] = other._element[i];
 		}
 		delete[] this->_element;
 		this->_element = tmp_element;

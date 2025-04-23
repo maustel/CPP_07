@@ -13,8 +13,6 @@
 #ifndef __ARRAY_HPP__
 # define __ARRAY_HPP__
 
-// #pragma once
-
 # include <iostream>
 
 template <typename T>

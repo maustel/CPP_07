@@ -16,7 +16,6 @@
 int main()
 {
 	std::cout << MAG << "-----[ARRAY OF INT]-----" << RESET << std::endl;
-
 	try
 	{
 		std::cout << GRN << "Should work:" << RESET << std::endl;
@@ -26,7 +25,7 @@ int main()
 		int_array[1] = 12;
 		std::cout << YEL << "After setting values:\n" << RESET << int_array;
 		std::cout << RED << "Should fail:" << RESET << std::endl;
-		int_array[2] = 1;
+		std::cout << int_array[2];
 	}
 	catch(const std::exception& e)
 	{
