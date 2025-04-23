@@ -37,4 +37,16 @@ void iter(T* array, int length, void (*f)(T&))
 	}
 }
 
+/*
+in eval sheet there is a test with a constant parameter, therefor I added this function
+*/
+template <typename T>
+void iter(T* array, int length, void (*f)(const T&))
+{
+	for(int i = 0; i < length; i++)
+	{
+		f(array[i]);
+	}
+}
+
 #endif

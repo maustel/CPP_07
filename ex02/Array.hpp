@@ -20,20 +20,20 @@ class Array
 {
 	private:
 	T* 				_element;
-	unsigned int	_size;
+	int	_size;
 
 	public:
 	Array();
 	~Array();
 	Array(const Array& other);
 	Array& operator=(const Array& other);
-	Array(unsigned int n);
+	Array(int n);
 
 	//const for reading, non const for assigning
-	const T& operator[](unsigned int) const;
-	T& operator[](unsigned int);
+	const T& operator[](int) const;
+	T& operator[](int);
 
-	unsigned int size() const;
+	int size() const;
 };
 
 template <typename T>

@@ -29,8 +29,16 @@ _element(new T[n]()) -> creates an array of n elements.
 () initializes each element to 0
 */
 template <typename T>
-Array<T>::Array(unsigned int n): _element(new T[n]()), _size(n)
-{}
+Array<T>::Array(int n)
+{
+	if (n < 0)
+		throw std::out_of_range("n is out of range!");
+	else
+	{
+		this->_element = new T[n]();
+		this->_size = n;
+	}
+}
 
 template <typename T>
 Array<T>::Array(const Array& other): _element(nullptr), _size(other._size)
@@ -38,7 +46,7 @@ Array<T>::Array(const Array& other): _element(nullptr), _size(other._size)
 	if (other._element)
 	{
 		this->_element = new T[other._size];
-		for (size_t i = 0; i < other._size; i++)
+		for (int i = 0; i < other._size; i++)
 			this->_element[i] = other._element[i];
 	}
 }
@@ -57,7 +65,7 @@ Array<T>& Array<T>::operator=(const Array& other)
 		if (other._element)
 		{
 			tmp_element = new T[other._size];
-			for (size_t i = 0; i < other._size; i++)
+			for (int i = 0; i < other._size; i++)
 				tmp_element[i] = other._element[i];
 		}
 		delete[] this->_element;
@@ -69,23 +77,23 @@ Array<T>& Array<T>::operator=(const Array& other)
 //-------------------- [Subscript operator overload] -------------------
 
 template<class T>
-const T &Array<T>::operator[](unsigned int index) const
+const T &Array<T>::operator[](int index) const
 {
-	if (index >= this->_size)
+	if (index >= this->_size || index < 0)
 		throw std::out_of_range("Index is out of range!");
 	return (this->_element[index]);
 }
 
-template<class T> T &Array<T>::operator[](unsigned int index)
+template<class T> T &Array<T>::operator[](int index)
 {
-	if (index >= this->_size)
+	if (index >= this->_size || index < 0)
 		throw std::out_of_range("Index is out of range!");
 	return (this->_element[index]);
 }
 
 //-------------------- [Member Functions] -------------------
 
-template<class T> unsigned int Array<T>::size() const
+template<class T> int Array<T>::size() const
 {
 	return (this->_size);
 }
@@ -95,7 +103,7 @@ template<class T> unsigned int Array<T>::size() const
 template<class T> std::ostream &operator<<(std::ostream &os, const Array<T> &arr)
 {
 	os << "Array size: " << arr.size() << "\ncontent:" << std::endl;
-	for (size_t i = 0; i < arr.size(); i++)
+	for (int i = 0; i < arr.size(); i++)
 		os << "Index " << i << ": " << arr[i] << std::endl;
 	return (os);
 }
